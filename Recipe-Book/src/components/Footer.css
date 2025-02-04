@@ -3,6 +3,7 @@
   background-color: #f9f9f9;
   bottom: 2vh;
   left: 0;
+  color:red;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
