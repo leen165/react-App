@@ -1,10 +1,17 @@
 .recipeList {
     margin: 10vh 5vh;
    display: flex; 
+   justify-content: center;
+   border: 1px solid black;
+   padding: 10px 15px;
 }
 
 
 .recipeList img{
 height: 250px;
 width: 350px;
+}
+
+.recipe-info{
+    text-align: start;
 }
