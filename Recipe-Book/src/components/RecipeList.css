@@ -1,0 +1,10 @@
+.recipeList {
+    margin: 10vh 5vh;
+   display: flex; 
+}
+
+
+.recipeList img{
+height: 250px;
+width: 350px;
+}
