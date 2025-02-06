@@ -5,11 +5,21 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import RecipesList from "./components/RecipesList";
 import Footer from "./components/Footer";
+import RecipeDetails from "./pages/RecipeDetails";
+import { Routes, Route } from "react-router-dom";
+import AboutUs from "./pages/AboutUs";
+import NotFound from "./components/NotFound";
+
 function App() {
   return (
     <>
       <Navbar />
-      <RecipesList/>
+      <Routes>
+        <Route path="/" element={<RecipesList />} />
+        <Route path="/recipes/:recipesId" element={<RecipeDetails />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       <Footer />
     </>
   );

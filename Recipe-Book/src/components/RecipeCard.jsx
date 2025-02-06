@@ -1,30 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-function RecipeCard({recipeObj, deleteRecipe}) {
+function RecipeCard({recipeObj}) {
   return (
     <div className="recipeList" key={recipeObj.id}>
       <div>
         <img src={recipeObj.image} />
       </div>
       <div className="recipe-info">
-        <p>
-          <strong>Name :</strong>
-          {recipeObj.name}
-        </p>
-        <p>
-          <strong>Calories:</strong> {recipeObj.calories}
-          {recipeObj.calories < 350 ? " ✅" : " ❌"}
-        </p>
-        <p>
-          <strong>Servings:</strong> {recipeObj.servings}
-        </p>
-        <button
-          onClick={() => {
-            deleteRecipe(recipeObj.id);
-          }}
-        >
-          Delete
-        </button>
+        <Link to={`/recipes/${recipeObj.id}`}>
+          <button>See Full Recipe</button>
+        </Link>
       </div>
     </div>
   );
