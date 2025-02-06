@@ -5,13 +5,6 @@ function RecipeCard({recipeObj, deleteRecipe}) {
     <div className="recipeList" key={recipeObj.id}>
       <div>
         <img src={recipeObj.image} />
-        <button
-          onClick={() => {
-            deleteRecipe(recipeObj.id);
-          }}
-        >
-          Delete
-        </button>
       </div>
       <div className="recipe-info">
         <p>
@@ -25,6 +18,13 @@ function RecipeCard({recipeObj, deleteRecipe}) {
         <p>
           <strong>Servings:</strong> {recipeObj.servings}
         </p>
+        <button
+          onClick={() => {
+            deleteRecipe(recipeObj.id);
+          }}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );

@@ -1,17 +1,26 @@
+.recipe-container {
+    margin: 15vh 10vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
 .recipeList {
-    margin: 10vh 5vh;
-   display: flex; 
-   justify-content: center;
-   border: 1px solid black;
-   padding: 10px 15px;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  padding: 10px 15px;
+  box-sizing: border-box;
 }
 
-
-.recipeList img{
-height: 250px;
-width: 350px;
+.recipeList img {
+  height: 250px;
+  width: 350px;
 }
 
-.recipe-info{
-    text-align: start;
+.recipe-info {
+  text-align: center;
 }

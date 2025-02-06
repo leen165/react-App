@@ -11,11 +11,12 @@ function RecipesList() {
     setRecipeList(newRecipeList);
   };
   return (
-    <>
+    <div className="recipe-container">
+
       {recipesList.map((recipeObj) => {
-        return  <RecipeCard recipeObj={recipeObj} deleteRecipe={deleteRecipe} />;
+        return <RecipeCard recipeObj={recipeObj} deleteRecipe={deleteRecipe} />;
       })}
-    </>
+    </div>
   );
 }
 export default RecipesList;
