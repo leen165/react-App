@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import recipes from "../assets/recipes.json";
 import RecipeCard from "./RecipeCard";
 import "./RecipeList.css";
+
 function RecipesList() {
+
   const [recipesList, setRecipeList] = useState(recipes);
   const deleteRecipe = (recipeId) => {
     const newRecipeList = recipesList.filter((recipe) => {
@@ -12,6 +14,7 @@ function RecipesList() {
   };
   return (
     <div className="recipe-container">
+      
 
       {recipesList.map((recipeObj) => {
         return <RecipeCard recipeObj={recipeObj} deleteRecipe={deleteRecipe} />;
