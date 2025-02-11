@@ -5,8 +5,9 @@ import RecipeList from "./RecipesList";
 import "./RecipeList.css";
 import { v4 as uuid } from "uuid";
 function AddRecipe(props) {
-  const [name, setName] = useState("");
 
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
   const [calories, setCalories] = useState("");
   const [rating, setRating] = useState("");
 
@@ -14,9 +15,8 @@ function AddRecipe(props) {
     event.preventDefault();
 
     const recipeObj = {
-      //id: '_' + Math.random().toString(36).substr(2, 9), // creat id for the recipe
       name: name,
-      //image: image,
+      image: image,
       calories: calories,
       rating: rating,
       id: uuid(),
@@ -28,6 +28,7 @@ function AddRecipe(props) {
     setName("");
     setRating("");
     setCalories("");
+    setImage("");
   };
 
   return (
@@ -73,6 +74,19 @@ function AddRecipe(props) {
             max="10"
             onChange={(event) => {
               setRating(event.target.value);
+            }}
+          />
+        </label>
+
+        <label>
+          <strong> Image:</strong>
+          <input
+            type="url"
+            name="image"
+            value={image}
+            placeholder="Enter Recipe's Image"
+            onChange={(event) => {
+              setImage(event.target.value);
             }}
           />
         </label>

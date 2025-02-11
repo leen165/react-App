@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 
 function RecipeDetails({ recipe }) {
   const { recipesId } = useParams();
-  console.log("Recipe ID from URL:", recipesId);
+  //console.log("Recipe ID from URL:", recipesId);
   
   const recipeDetails = recipe.find((recipe) => recipe.id === recipesId);
-  console.log(recipeDetails);
+  //console.log(recipeDetails);
 
   if (!recipeDetails) {
     return <p>Recipe not found</p>;
