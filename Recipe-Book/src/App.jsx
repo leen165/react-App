@@ -14,14 +14,14 @@ import recipes from './assets/recipes.json';
 
 function App() {
   const [recipe , setRecipe]= useState(recipes);
-
   const creatRecipe = (recipeDetails) =>{
 
-   const newRecipeList =[RecipeDetails, ...recipe];
+   const newRecipeList =[recipeDetails, ...recipe];
 
    setRecipe(newRecipeList);
 
   };
+  
   return (
     <>
       <Navbar />
@@ -29,7 +29,7 @@ function App() {
       <Routes>
         <Route path="/add" element={<AddRecipe callbackToCreat={creatRecipe} />} />
         <Route path="/" element={<RecipesList recipesList ={recipe} />} />
-        <Route path="/recipes/:recipesId" element={<RecipeDetails />} />
+        <Route path="/recipes/:recipesId" element={<RecipeDetails recipe={recipe}/>} />
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -1,15 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import recipes from "../assets/recipes.json";
 
-function RecipeDetails() {
-const { recipesId } = useParams();
-console.log("Recipe ID from URL:", recipesId);
-// console.log("Recipes Data:", recipes);
-
-  const recipeDetails = recipes.find(
-    (recipe) => recipe.id === recipesId
-  );
+function RecipeDetails({ recipe }) {
+  const { recipesId } = useParams();
+  console.log("Recipe ID from URL:", recipesId);
+  
+  const recipeDetails = recipe.find((recipe) => recipe.id === recipesId);
+  console.log(recipeDetails);
 
   if (!recipeDetails) {
     return <p>Recipe not found</p>;

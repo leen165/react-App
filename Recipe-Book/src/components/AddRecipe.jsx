@@ -2,25 +2,24 @@ import React from "react";
 import { useState } from "react";
 import "../pages/RecipeDetails";
 import RecipeList from "./RecipesList";
-
+import "./RecipeList.css";
+import { v4 as uuid } from "uuid";
 function AddRecipe(props) {
-  
   const [name, setName] = useState("");
-  const [id, setId] = useState(3); 
+
   const [calories, setCalories] = useState("");
   const [rating, setRating] = useState("");
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const recipeObj = {
-     //id: '_' + Math.random().toString(36).substr(2, 9), // creat id for the recipe
+      //id: '_' + Math.random().toString(36).substr(2, 9), // creat id for the recipe
       name: name,
       //image: image,
       calories: calories,
       rating: rating,
-      id : id,
+      id: uuid(),
     };
     console.log(recipeObj);
 
@@ -32,10 +31,12 @@ function AddRecipe(props) {
   };
 
   return (
-    <section className="addRecipe">
-      <form onSubmit={handleSubmit}>
+    <section>
+      <form onSubmit={handleSubmit} className="addRecipe">
         <label>
-          Add Recipe
+          <p>
+            <strong> Add Recipe:</strong>
+          </p>
           <input
             type="text"
             name="Recipe"
@@ -47,10 +48,8 @@ function AddRecipe(props) {
             }}
           />
         </label>
-        <br></br>
-        <br></br>
         <label>
-          Calories
+          <strong> Calories :</strong>
           <input
             type="number"
             name="Calories"
@@ -61,10 +60,11 @@ function AddRecipe(props) {
             }}
           />
         </label>
-        <br></br>
-        <br></br>
+
         <label>
-          rating
+          <p>
+            <strong>Rating:</strong>
+          </p>
           <input
             type="number"
             value={rating}
@@ -76,8 +76,7 @@ function AddRecipe(props) {
             }}
           />
         </label>
-        <br></br>
-        <br></br>
+
         <button>Add the Recipe</button>
       </form>
     </section>

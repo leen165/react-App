@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function RecipeCard({recipeObj}) {
 
-  
+  console.log(recipeObj)
   return (
     <div className="recipeList" key={recipeObj.id}>
       <div>

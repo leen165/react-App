@@ -24,3 +24,25 @@
 .recipe-info {
   text-align: center;
 }
+
+.addRecipe {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid black;
+  padding: 25px 30px;
+}
+
+.addRecipe label {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 35px;
+  margin-bottom: 20px;
+
+}
+
+.addRecipe input{
+  border: transparent ;
+  border-bottom: 1px solid gray ;
+}
