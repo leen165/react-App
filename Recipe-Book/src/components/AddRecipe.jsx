@@ -4,14 +4,15 @@ import "../pages/RecipeDetails";
 import RecipeList from "./RecipesList";
 
 function AddRecipe(props) {
+  
   const [name, setName] = useState("");
- // const [image, setImage] = useState(""); 
+  const [id, setId] = useState(3); 
   const [calories, setCalories] = useState("");
   const [rating, setRating] = useState("");
 
+
   const handleSubmit = (event) => {
     event.preventDefault();
-   
 
     const recipeObj = {
      //id: '_' + Math.random().toString(36).substr(2, 9), // creat id for the recipe
@@ -19,7 +20,7 @@ function AddRecipe(props) {
       //image: image,
       calories: calories,
       rating: rating,
-      //id,
+      id : id,
     };
     console.log(recipeObj);
 
@@ -27,7 +28,6 @@ function AddRecipe(props) {
     // clear form
     setName("");
     setRating("");
-    //setImage("");
     setCalories("");
   };
 
@@ -78,7 +78,7 @@ function AddRecipe(props) {
         </label>
         <br></br>
         <br></br>
-        <button>Add Recipe</button>
+        <button>Add the Recipe</button>
       </form>
     </section>
   );

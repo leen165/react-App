@@ -13,7 +13,9 @@ function Navbar() {
         <Link to={"/aboutUs"}>
           <p>About us</p>
         </Link>
-        <p>Contact us</p>
+        <Link to ={"/add"}>
+        <p>Add New Recipe</p>
+        </Link>
       </div>
     </div>
   );

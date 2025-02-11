@@ -5,7 +5,7 @@ import recipes from "../assets/recipes.json";
 function RecipeDetails() {
 const { recipesId } = useParams();
 console.log("Recipe ID from URL:", recipesId);
-console.log("Recipes Data:", recipes);
+// console.log("Recipes Data:", recipes);
 
   const recipeDetails = recipes.find(
     (recipe) => recipe.id === recipesId

@@ -3,21 +3,19 @@ import recipes from "../assets/recipes.json";
 import RecipeCard from "./RecipeCard";
 import "./RecipeList.css";
 
-function RecipesList() {
+function RecipesList({recipesList}) {
 
-  const [recipesList, setRecipeList] = useState(recipes);
+  const [oldrecipesList, setRecipeList] = useState(recipes);
   const deleteRecipe = (recipeId) => {
-    const newRecipeList = recipesList.filter((recipe) => {
+    const newRecipeList = oldrecipesList.filter((recipe) => {
       return recipe.id !== recipeId;
     });
     setRecipeList(newRecipeList);
   };
   return (
     <div className="recipe-container">
-      
-
-      {recipesList.map((recipeObj) => {
-        return <RecipeCard recipeObj={recipeObj} deleteRecipe={deleteRecipe} />;
+      {recipesList.map((recipeObj)=> {
+        return <RecipeCard key={recipeObj.id} recipeObj={recipeObj} deleteRecipe={deleteRecipe} />;
       })}
     </div>
   );

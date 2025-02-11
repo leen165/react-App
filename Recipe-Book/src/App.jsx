@@ -17,7 +17,7 @@ function App() {
 
   const creatRecipe = (recipeDetails) =>{
 
-   const newRecipeList =[creatRecipe, ...recipe];
+   const newRecipeList =[RecipeDetails, ...recipe];
 
    setRecipe(newRecipeList);
 
@@ -28,7 +28,7 @@ function App() {
      
       <Routes>
         <Route path="/add" element={<AddRecipe callbackToCreat={creatRecipe} />} />
-        <Route path="/" element={<RecipesList />} />
+        <Route path="/" element={<RecipesList recipesList ={recipe} />} />
         <Route path="/recipes/:recipesId" element={<RecipeDetails />} />
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
