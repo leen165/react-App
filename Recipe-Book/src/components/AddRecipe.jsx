@@ -1,11 +1,8 @@
-import React from "react";
-import { useState } from "react";
-import "../pages/RecipeDetails";
-import RecipeList from "./RecipesList";
-import "./RecipeList.css";
+import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
-function AddRecipe(props) {
+import "./RecipeList.css";
 
+function AddRecipe({ callbackToCreat }) {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [calories, setCalories] = useState("");
@@ -14,86 +11,74 @@ function AddRecipe(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const recipeObj = {
-      name: name,
-      image: image,
-      calories: calories,
-      rating: rating,
-      id: uuid(),
-    };
-    console.log(recipeObj);
+    if (!name || !image) {
+      alert("Recipe name and image are required!");
+      return;
+    }
 
-    props.callbackToCreat(recipeObj);
-    // clear form
+    const recipeObj = {
+      id: uuid(),
+      name,
+      image,
+      calories,
+      rating,
+    };
+
+    callbackToCreat(recipeObj);
+
+    // Clear form after submission
     setName("");
-    setRating("");
     setCalories("");
+    setRating("");
     setImage("");
   };
 
   return (
-    <section>
-      <form onSubmit={handleSubmit} className="addRecipe">
-        <label>
-          <p>
-            <strong> Add Recipe:</strong>
-          </p>
-          <input
-            type="text"
-            name="Recipe"
-            value={name}
-            required={true}
-            placeholder="Add your Recipe Name"
-            onChange={(event) => {
-              setName(event.target.value);
-            }}
-          />
-        </label>
-        <label>
-          <strong> Calories :</strong>
-          <input
-            type="number"
-            name="Calories"
-            value={calories}
-            placeholder="Enter Recipe's Calories"
-            onChange={(event) => {
-              setCalories(event.target.value);
-            }}
-          />
-        </label>
+    <section className="add-recipe-container">
+      <h2>Add a New Recipe</h2>
+      <form onSubmit={handleSubmit} className="add-recipe-form">
+        <label>Recipe Name:</label>
+        <input
+          type="text"
+          value={name}
+          required
+          placeholder="Enter recipe name"
+          onChange={(e) => setName(e.target.value)}
+        />
 
-        <label>
-          <p>
-            <strong>Rating:</strong>
-          </p>
-          <input
-            type="number"
-            value={rating}
-            name="Rating"
-            min="0"
-            max="10"
-            onChange={(event) => {
-              setRating(event.target.value);
-            }}
-          />
-        </label>
+        <label>Calories:</label>
+        <input
+          type="number"
+          value={calories}
+          placeholder="Enter recipe's calories"
+          onChange={(e) => setCalories(e.target.value)}
+        />
 
-        <label>
-          <strong> Image:</strong>
-          <input
-            type="url"
-            name="image"
-            value={image}
-            placeholder="Enter Recipe's Image"
-            onChange={(event) => {
-              setImage(event.target.value);
-            }}
-          />
-        </label>
+        <label>Rating (0-10):</label>
+        <input
+          type="number"
+          value={rating}
+          min="0"
+          max="10"
+          placeholder="Rate the recipe"
+          onChange={(e) => setRating(e.target.value)}
+        />
 
-        <button>Add the Recipe</button>
+        <label>Image URL:</label>
+        <input
+          type="url"
+          value={image}
+          required
+          placeholder="Enter image URL"
+          onChange={(e) => setImage(e.target.value)}
+        />
+
+        <button type="submit" className="add-recipe-btn">
+          Add Recipe
+        </button>
       </form>
     </section>
   );
 }
+
 export default AddRecipe;

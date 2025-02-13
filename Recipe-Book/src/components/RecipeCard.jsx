@@ -1,15 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-function RecipeCard({recipeObj}) {
-
-  console.log(recipeObj)
+function RecipeCard({ recipeObj }) {
   return (
-    <div className="recipeList" key={recipeObj.id}>
+    <div className="recipeList">
       <div>
-        <img src={recipeObj.image} />
+        <img src={recipeObj.image} alt={recipeObj.name} />
       </div>
       <div className="recipe-info">
+        <h3>{recipeObj.name}</h3>
         <Link to={`/recipes/${recipeObj.id}`}>
           <button>See Full Recipe</button>
         </Link>
@@ -18,4 +17,4 @@ function RecipeCard({recipeObj}) {
   );
 }
 
-export default RecipeCard
+export default RecipeCard;
